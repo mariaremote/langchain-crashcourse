@@ -1,23 +1,14 @@
-# TODO: replace deprecated classes
+import langchain_helper as lch
+import streamlit as st
 
-from dotenv import load_dotenv
-# from langchain.llms import OpenAI 
-from langchain_openai import OpenAI #or any other (Hugging Face) model
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain # deprecated
+st.title("Username Generator")
 
-load_dotenv()
+user_platform = st.sidebar.selectbox("Select Platform",("Github","Twitter","Reddit","Instagram","Facebook","X","YouTube"))
 
-def generate_username(platform, color):
-    llm = OpenAI(temperature = 0.8) # the higher the more creative
-    prompt_template_name = PromptTemplate(
-        input_variables = ["platform","color"],
-        template = "Suggest five cool usernames for a new {platform} profile. Use the color {color} or some other variations of it in the usernames.",
-    )
-    name_chain = LLMChain(llm=llm, prompt=prompt_template_name)
+user_color = st.sidebar.text_area("Wanna add a color?",max_chars=15)
 
-    response = name_chain({'platform': platform, 'color': color})
-    return response
+user_keyword = st.sidebar.text_area("Any other keyword?",max_chars=15)
 
-if __name__ == "__main__":
-    print(generate_username('Github', 'green'))
+response = lch.generate_username(user_platform,user_color,user_keyword)
+
+st.text(response['usernames'])
