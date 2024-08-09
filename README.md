@@ -1,6 +1,8 @@
 # LangChain Crash Course
 
-## Getting Setup
+This project is accompanying the FreeCodeCamp Tutorial on Youtube: https://www.youtube.com/watch?v=lG7Uxts9SXs (in my own way).
+
+## Setup
 
 \*on Mac
 
