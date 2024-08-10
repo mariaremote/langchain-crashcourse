@@ -18,6 +18,10 @@ This project is accompanying the FreeCodeCamp Tutorial on Youtube: https://www.y
 
    `pip3 install langchain-openai streamlit python-dotenv`
 
+4. install any tools that you want the agent to be able to use
+
+   `pip3 install wikipedia`
+
 ## Run the App
 
 - navigate into the root directory
@@ -25,3 +29,7 @@ This project is accompanying the FreeCodeCamp Tutorial on Youtube: https://www.y
 - this will run a local app in the browser at port `8501`
 
 ![Username Generator App in Browser](demo.png)
+
+## Run the functions in isolation (for testing)
+
+`python3 langchain-helper.py`
